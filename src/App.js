@@ -7,11 +7,7 @@ const myFunc = function(token) {
 	fetch(url, {
 		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, cors, *same-origin
-		withCredentials: true,
 		credentials: 'include',
-		headers: {
-			Authorization: `Bearer ${token}`,
-		},
 	})
 		.then(function(response) {
 			console.log('this is my response: ', response);

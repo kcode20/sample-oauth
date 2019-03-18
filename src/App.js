@@ -3,19 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 const myFunc = function(token) {
-	fetch(
-		`https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`
-	)
+	const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
+	fetch(url, {
+		method: 'GET', // *GET, POST, PUT, DELETE, etc.
+		mode: 'cors', // no-cors, cors, *same-origin
+		credentials: 'include',
+	})
 		.then(function(response) {
+			console.log(response);
 			return response.json();
 		})
 		.then(function(myJson) {
 			console.log(JSON.stringify(myJson));
 		});
 };
+
 class App extends Component {
 	render() {
-		const token = window.location.href.slice(56, 88);
+		const token = '18b896253f5c83cb8d0a6f795eeabe60'; //window.location.href.slice(56, 88);
 		return (
 			<div className="App">
 				<header className="App-header">

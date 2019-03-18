@@ -7,15 +7,22 @@ const myFunc = function(token) {
 	fetch(url, {
 		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, cors, *same-origin
+		withCredentials: true,
 		credentials: 'include',
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
 	})
 		.then(function(response) {
-			console.log(response);
+			console.log('this is my response: ', response);
 			return response.json();
 		})
 		.then(function(myJson) {
 			console.log(JSON.stringify(myJson));
-		});
+		})
+		.catch(() =>
+			console.log('Can’t access ' + url + ' response. Blocked by browser?')
+		);
 };
 
 class App extends Component {

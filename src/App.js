@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+const myFunc = function(token) {
+	fetch(
+		`https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`
+	)
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(myJson) {
+			console.log(JSON.stringify(myJson));
+		});
+};
 class App extends Component {
 	render() {
 		const token = window.location.href.slice(56, 88);
@@ -9,15 +20,7 @@ class App extends Component {
 			<div className="App">
 				<header className="App-header">
 					{token.length ? (
-						fetch(
-							`https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`
-						)
-							.then(function(response) {
-								return response.json();
-							})
-							.then(function(myJson) {
-								console.log(JSON.stringify(myJson));
-							})
+						myFunc(token)
 					) : (
 						<div>
 							<img src={logo} className="App-logo" alt="logo" />

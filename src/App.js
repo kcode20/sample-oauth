@@ -4,6 +4,8 @@ import './App.css';
 
 class App extends Component {
 	render() {
+		const key = window.location.href.slice(56, 90);
+		console.log(key);
 		return (
 			<div className="App">
 				<header className="App-header">

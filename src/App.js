@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+// import fetchjsonp from 'fetch-jsonp';
 import './App.css';
 
+// const myFunction = function(token) {
+//   const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
+// 	return fetchjsonp(url).then(response => {
+// 		console.log(response);
+// 		return response.json();
+// 	});
+// };
 const myFunc = function(token) {
 	const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
 
@@ -10,6 +18,7 @@ const myFunc = function(token) {
 		mode: 'cors', // no-cors, cors, *same-origin
 		headers: {
 			Authorization: `Bearer ${token}`,
+			'Access-Control-Allow-Origin': '*',
 		},
 	})
 		.then(function(response) {

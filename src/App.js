@@ -8,9 +8,8 @@ const myFunc = function(token) {
 	fetch(url, {
 		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, cors, *same-origin
-		credentials: 'include',
 		headers: {
-			Origin: 'https://meetup-oauth-sample.herokuapp.com/',
+			Authorization: `Bearer ${token}`,
 		},
 	})
 		.then(function(response) {

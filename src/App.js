@@ -4,10 +4,14 @@ import './App.css';
 
 const myFunc = function(token) {
 	const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
+
 	fetch(url, {
 		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, cors, *same-origin
 		credentials: 'include',
+		headers: {
+			Origin: 'https://meetup-oauth-sample.herokuapp.com/',
+		},
 	})
 		.then(function(response) {
 			console.log('this is my response: ', response);
@@ -23,7 +27,7 @@ const myFunc = function(token) {
 
 class App extends Component {
 	render() {
-		const token = window.location.href.slice(56, 88);
+		const token = 'b6d20e28856950b96c666703267c3647'; //window.location.href.slice(56, 88);
 		return (
 			<div className="App">
 				<header className="App-header">

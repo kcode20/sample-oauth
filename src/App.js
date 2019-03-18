@@ -16,10 +16,10 @@ const myFunc = function(token) {
 	fetch(url, {
 		method: 'GET', // *GET, POST, PUT, DELETE, etc.
 		mode: 'cors', // no-cors, cors, *same-origin
-		headers: {
-			Authorization: `Bearer ${token}`,
-			'Access-Control-Allow-Origin': '*',
-		},
+		// headers: {
+		// 	Authorization: `Bearer ${token}`,
+		// 	'Access-Control-Allow-Origin': '*',
+		// },
 	})
 		.then(function(response) {
 			console.log('this is my response: ', response);

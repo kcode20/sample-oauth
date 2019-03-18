@@ -20,7 +20,7 @@ const myFunc = function(token) {
 
 class App extends Component {
 	render() {
-		const token = '18b896253f5c83cb8d0a6f795eeabe60'; //window.location.href.slice(56, 88);
+		const token = window.location.href.slice(56, 88);
 		return (
 			<div className="App">
 				<header className="App-header">

@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
 	render() {
-		const key = window.location.href.slice(56, 90);
+		const key = window.location.href.slice(56, 87);
 		console.log(key);
 		return (
 			<div className="App">

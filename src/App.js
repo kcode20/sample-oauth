@@ -31,7 +31,7 @@ class App extends Component {
 					<div>
 						<img src={logo} className="App-logo" alt="logo" />
 						<p>
-							Edit <code>src/App.js</code> and save to reload.
+							Look in <code>console</code> for results.
 						</p>
 					</div>
 					{token.length ? (

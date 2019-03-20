@@ -5,7 +5,7 @@ import './App.css';
 const myFunc = function(token) {
 	const url = `https://api.meetup.com/2/member/self/?access_token=${token}`;
 
-	return fetch(url, {
+	fetch(url, {
 		method: 'GET',
 		mode: 'cors',
 	})
@@ -13,8 +13,9 @@ const myFunc = function(token) {
 			return response.json();
 		})
 		.then(function(myJson) {
-			return <code>{JSON.stringify(myJson)}</code>;
-		});
+			console.log(JSON.stringify(myJson));
+		})
+		.catch(() => console.log('Can’t access ' + url + ' response.'));
 };
 
 class App extends Component {

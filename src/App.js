@@ -4,7 +4,7 @@ import './App.css';
 
 const myFunc = function(token) {
 	console.log(token);
-	const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
+	const url = `https://api.meetup.com/2/member/self/?access_token=${token}`;
 
 	fetch(url, {
 		method: 'GET',

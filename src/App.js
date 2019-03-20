@@ -17,9 +17,7 @@ const myFunc = function(token) {
 		.then(function(myJson) {
 			console.log(JSON.stringify(myJson));
 		})
-		.catch(() =>
-			console.log('Can’t access ' + url + ' response. Blocked by browser?')
-		);
+		.catch(() => console.log('Can’t access ' + url + ' response.'));
 };
 
 class App extends Component {
@@ -30,23 +28,23 @@ class App extends Component {
 		return (
 			<div className="App">
 				<header className="App-header">
+					<div>
+						<img src={logo} className="App-logo" alt="logo" />
+						<p>
+							Edit <code>src/App.js</code> and save to reload.
+						</p>
+					</div>
 					{token.length ? (
 						myFunc(token)
 					) : (
-						<div>
-							<img src={logo} className="App-logo" alt="logo" />
-							<p>
-								Edit <code>src/App.js</code> and save to reload.
-							</p>
-							<a
-								className="App-link"
-								href="https://secure.meetup.com/oauth2/authorize?client_id=tdg6drsop9c4s51h8qdvl5998q&response_type=token&redirect_uri=https://meetup-oauth-sample.herokuapp.com/"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								OAuth
-							</a>
-						</div>
+						<a
+							className="App-link"
+							href="https://secure.meetup.com/oauth2/authorize?client_id=tdg6drsop9c4s51h8qdvl5998q&response_type=token&redirect_uri=https://meetup-oauth-sample.herokuapp.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							OAuth
+						</a>
 					)}
 				</header>
 			</div>

@@ -1,25 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-// import fetchjsonp from 'fetch-jsonp';
 import './App.css';
 
-// const myFunction = function(token) {
-//   const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
-// 	return fetchjsonp(url).then(response => {
-// 		console.log(response);
-// 		return response.json();
-// 	});
-// };
 const myFunc = function(token) {
 	const url = `https://api.meetup.com/pro/gdg/groups/?zip=11216&radius=10&access_token=${token}`;
 
 	fetch(url, {
-		method: 'GET', // *GET, POST, PUT, DELETE, etc.
-		mode: 'cors', // no-cors, cors, *same-origin
-		// headers: {
-		// 	Authorization: `Bearer ${token}`,
-		// 	'Access-Control-Allow-Origin': '*',
-		// },
+		method: 'GET',
+		mode: 'cors',
 	})
 		.then(function(response) {
 			console.log('this is my response: ', response);
@@ -35,7 +23,9 @@ const myFunc = function(token) {
 
 class App extends Component {
 	render() {
-		const token = window.location.href.slice(56, 88);
+		const token = window.location.hash
+			? window.location.hash.match(/#access_token=([a-z0-9]*)/)[1]
+			: '';
 		return (
 			<div className="App">
 				<header className="App-header">

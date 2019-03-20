@@ -3,21 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 
 const myFunc = function(token) {
-	console.log(token);
 	const url = `https://api.meetup.com/2/member/self/?access_token=${token}`;
 
-	fetch(url, {
+	return fetch(url, {
 		method: 'GET',
 		mode: 'cors',
 	})
 		.then(function(response) {
-			console.log('this is my response: ', response);
 			return response.json();
 		})
 		.then(function(myJson) {
-			console.log(JSON.stringify(myJson));
-		})
-		.catch(() => console.log('Can’t access ' + url + ' response.'));
+			return <code>{JSON.stringify(myJson)}</code>;
+		});
 };
 
 class App extends Component {
